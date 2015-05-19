@@ -90,7 +90,7 @@ namespace Vuforia
         private void OnTrackingLost()
         {
             Renderer[] rendererComponents = GetComponentsInChildren<Renderer>(true);
-            Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
+            //Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
 
             // Disable rendering:
             foreach (Renderer component in rendererComponents)
@@ -99,10 +99,10 @@ namespace Vuforia
             }
 
             // Disable colliders:
-            foreach (Collider component in colliderComponents)
-            {
-                component.enabled = false;
-            }
+//            foreach (Collider component in colliderComponents)
+//            {
+//                component.enabled = false;
+//            }
 
             Debug.Log("Trackable " + mTrackableBehaviour.TrackableName + " lost");
         }
