@@ -17,7 +17,7 @@ public class SpawnScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		Debug.Log ("In Update");
+		//Debug.Log ("In Update");
 			if (Input.GetKeyDown(KeyCode.Space)) {
 			Debug.Log("Space Pressed");
 			GameRunning = !GameRunning;

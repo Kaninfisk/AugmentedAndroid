@@ -12,8 +12,8 @@ public class Meteor : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		this.transform.Rotate(Vector3.right * 10f * Time.deltaTime);
-		this.transform.Rotate (Vector3.up * 5f * Time.deltaTime);
+	//	this.transform.Rotate(Vector3.right * 10f * Time.deltaTime);
+	//	this.transform.Rotate (Vector3.up * 5f * Time.deltaTime);
 		this.transform.Translate (Vector3.up * MovementSpeed * Time.deltaTime);
 	}
 }
