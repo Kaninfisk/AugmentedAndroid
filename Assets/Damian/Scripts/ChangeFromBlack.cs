@@ -18,7 +18,6 @@ public class ChangeFromBlack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
         if (guess && notSwitched)
         {
             GameObject MyObjName = this.gameObject;
@@ -31,11 +30,5 @@ public class ChangeFromBlack : MonoBehaviour
             }
             notSwitched = false;
         }
-
-        //if (guess)
-        //    gameObject.SetActive(false);
-        //else
-        //    gameObject.SetActive(true);
-
     }
 }
