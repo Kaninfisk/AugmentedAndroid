@@ -12,7 +12,6 @@ public class ChangeFromBlack : MonoBehaviour
     {
         guess = false;
         notSwitched = true;
-
     }
 
     // Update is called once per frame
