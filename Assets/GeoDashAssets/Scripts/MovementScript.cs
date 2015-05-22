@@ -9,7 +9,9 @@ public class MovementScript : MonoBehaviour {
 	float distToGround;
 	float distToSide;
 	bool jumping;
+	public float jumpForce;
 	bool sideCollision;
+	DashManager manager;
 
 
 
@@ -23,6 +25,9 @@ public class MovementScript : MonoBehaviour {
 		//Sets the gravity in order to improve the feel of the jump
 		Physics.gravity = new Vector3(0, -150.0f, 0);
 		jumping = false;
+		jumpForce = 35;
+
+		manager = GameObject.FindWithTag ("Manager").GetComponent<DashManager> ();
 	}
 	
 	// Update is called once per frame
@@ -33,11 +38,11 @@ public class MovementScript : MonoBehaviour {
 		//Debug.Log ("isGrounded = " + isGrounded.ToString ());
 
 		//Check whether the player is colliding from the side
-		sideCollision = Physics.Raycast(new Ray(transform.position, Vector3.right), distToSide - 0.1f, 1);
+		sideCollision = Physics.Raycast(new Ray(transform.position, Vector3.right), distToSide, 1);
 		//Debug.Log ("sideCollision = " + sideCollision.ToString ());
 
 		//Test for PC - sets jumping to true if space is pressed while grounded
-		if (Input.GetKey(KeyCode.Space) && isGrounded)
+		if (manager.gameRunning && Input.GetKey(KeyCode.Space) && isGrounded)
 		{
 			//Debug.Log ("Space was pressed");
 			jumping = true;
@@ -48,15 +53,28 @@ public class MovementScript : MonoBehaviour {
 			currentTouch = Input.GetTouch(0);
 		}
 		//If a touch is registered and the player is grounded, the player jumps
-		if (currentTouch.phase == TouchPhase.Began && isGrounded)
+		if (manager.gameRunning && currentTouch.phase == TouchPhase.Began && isGrounded)
 		{
 			//Needs to be commented out when testing on PC
 	  		//jumping = true;
 		}
-		if (sideCollision)
+		//Ends the game if player collides with an obstacle
+		if (sideCollision && ! manager.gameOver)
 		{
-			Debug.Log ("Game over!");
-			GeoDashTrackableEventHandler.gameRunning = false;
+			if (!manager.gameOver)
+			{
+				Debug.Log ("Game over!");
+				manager.gameRunning = false;
+				Debug.Log ("Movement gameRunning = " + manager.gameRunning);
+				manager.gameOver = true;
+			}
+
+		}
+
+		//Reset shortcut for testing purposes
+		if (Input.GetKey(KeyCode.R))
+		{
+			manager.ResetLevel();
 		}
 	}
 
@@ -64,15 +82,14 @@ public class MovementScript : MonoBehaviour {
 	{
 		//jumps if user presses space while grounded
 		if (jumping) {
-				//rigidbody.AddForce(Vector3.up * jumpForce);
-				rigidbody.velocity = Vector3.up * 40;
+				rigidbody.velocity = Vector3.up * jumpForce;
 				jumping = false;
 		}
 
-		if (GeoDashTrackableEventHandler.gameRunning)
+		//Rotates player while game is running
+		if (manager.gameRunning && !manager.gameOver)
 		{
-			//Applies a rotation to sphere
-			transform.Rotate (-Vector3.forward * Time.deltaTime * 500);
+			transform.Rotate (Vector3.back * Time.deltaTime * 500);
 		}
 	}
 

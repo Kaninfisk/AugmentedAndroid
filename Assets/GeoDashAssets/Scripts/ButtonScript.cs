@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ExitLevelCollider : MonoBehaviour {
+public class ButtonScript : MonoBehaviour {
 
 	DashManager manager;
 
@@ -12,18 +12,13 @@ public class ExitLevelCollider : MonoBehaviour {
 	}
 	
 	// Update is called once per frame
-	void Update ()
-	{
+	void Update () {
 	
 	}
 
-	void OnTriggerEnter(Collider other)
+	void onClick()
 	{
-		//If player collides, the game is won! :D
-		if (other.tag == "Player")
-		{
-			manager.gameWon = true;
-			Debug.Log ("You won the game!");
-		}
+		manager.ResetLevel ();
+		manager.HideButton ();
 	}
 }

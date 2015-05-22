@@ -15,13 +15,11 @@ namespace Vuforia
                                                 ITrackableEventHandler
     {
 
-		#region PUBLIC_MEMBER_VARIABLES
-		public static bool gameRunning;
-		#endregion
 
         #region PRIVATE_MEMBER_VARIABLES
  
         private TrackableBehaviour mTrackableBehaviour;
+		DashManager manager;
     
         #endregion // PRIVATE_MEMBER_VARIABLES
 
@@ -30,12 +28,20 @@ namespace Vuforia
         #region UNTIY_MONOBEHAVIOUR_METHODS
     
         void Start()
-        {
+		{
+			Debug.Log ("Attempting to find manager...");
+			manager = GameObject.FindWithTag ("Manager").GetComponent<DashManager> ();
+			if (manager != null)
+			{
+				Debug.Log ("Manager found!");
+			}
+
             mTrackableBehaviour = GetComponent<TrackableBehaviour>();
             if (mTrackableBehaviour)
             {
                 mTrackableBehaviour.RegisterTrackableEventHandler(this);
-            }
+			}
+
         }
 
         #endregion // UNTIY_MONOBEHAVIOUR_METHODS
@@ -73,7 +79,7 @@ namespace Vuforia
 
         private void OnTrackingFound()
         {
-			GeoDashTrackableEventHandler.gameRunning = true;
+			manager.ShowButton ();
             Renderer[] rendererComponents = GetComponentsInChildren<Renderer>(true);
             Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
 
@@ -95,7 +101,8 @@ namespace Vuforia
 
         private void OnTrackingLost()
         {
-			GeoDashTrackableEventHandler.gameRunning = false;
+			manager.HideButton ();
+			//manager.gameRunning = false;
             Renderer[] rendererComponents = GetComponentsInChildren<Renderer>(true);
             //Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
 

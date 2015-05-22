@@ -9,11 +9,11 @@ using Vuforia;
 
 public class LevelMovementScript : MonoBehaviour
 {
-	Vector3 origPos;
+	DashManager manager;
 
 	void Start()
 	{
-		origPos = transform.position;
+		manager = GameObject.FindWithTag ("Manager").GetComponent<DashManager> ();
 	}
 
 	//Egne metoder
@@ -24,11 +24,12 @@ public class LevelMovementScript : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		Debug.Log ("gameRunning = " + GeoDashTrackableEventHandler.gameRunning.ToString ());
-		if (GeoDashTrackableEventHandler.gameRunning)
+		//Debug.Log ("Level gameRunning = " + manager.gameRunning.ToString ());
+		//Moves the level towards the player while the game is running
+		if (manager.gameRunning && !manager.gameOver)
 		{
 			Debug.Log ("Moving level");
-			this.transform.position = new Vector3 (transform.position.x - 0.2f, 0, 0);
+			this.transform.position = new Vector3 (transform.position.x - 0.4f, 0, 0);
 		}
 	}
 }
