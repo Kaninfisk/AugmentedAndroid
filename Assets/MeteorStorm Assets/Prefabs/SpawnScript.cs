@@ -9,10 +9,11 @@ public class SpawnScript : MonoBehaviour {
 	public int spawnMax;
 	public bool GameRunning = false;
 	public bool SpawnInit = true;
+	private GameObject GameInfo;
 
 	// Use this for initialization
 	void Start () {
-
+		GameInfo = GameObject.Find ("GameInfo");
 	}
 	
 	// Update is called once per frame
@@ -34,7 +35,7 @@ public class SpawnScript : MonoBehaviour {
 		SpawnInit = true;
 	}
 	void Spawn(){
-			if (GameRunning) {
+			if (GameRunning && GameInfo.GetComponent<Game>().GetTarackable()) {
 			Instantiate(obj[Random.Range(0,obj.Length)], transform.position, Quaternion.identity);
 			Invoke ("Spawn", Random.Range (spawnMin, spawnMax));
 			SpawnInit = false;

@@ -10,39 +10,53 @@ public class Game : MonoBehaviour {
 	public float GameTime = 10;
 	private bool gameStart = false;
 	private float tottime = 0f;
+	private bool trackable;
 	void Start () {
 		slider.enabled = false;
 		slider.GetComponent<Image> ().enabled = false;
 		slider.maxValue = GameTime;
-		button.GetComponentInChildren<Text> ().fontSize = 80;
-		button.GetComponentInChildren<Text> ().text = "Press Play to Start";
+		trackable = false;
 
 		fill.GetComponent<Image> ().enabled = false;
 	}
-	
+	public void Istrackable(bool track){
+		trackable = track;
+		}
+
+	public bool GetTarackable(){
+		return trackable;
+		}
 	// Update is called once per frame
 	void Update () {
 	if (gameStart) {
-			if (slider.value + Time.deltaTime > slider.maxValue) {
-				StartStop();	
+
+			if (trackable) {
+				if (slider.value + Time.deltaTime > slider.maxValue) {
+					StartStop();	
+				}
+				slider.value = Mathf.MoveTowards(slider.value,slider.maxValue,Time.deltaTime);
+				tottime = tottime + Time.deltaTime;
 			}
-			slider.value = Mathf.MoveTowards(slider.value,slider.maxValue,Time.deltaTime);
-			tottime = tottime + Time.deltaTime;
+
 			//Debug.Log("Deltatime = " + Time.deltaTime + "totaltime in Milliseconds = " + tottime);
 				}
 	}
 
 	public void StartStop(){
-		gameStart = !gameStart;
-		for (int i = 0; i < SpawnerArray.Length; 0++) {
-
+		Debug.Log ("StartStop");
+		if (trackable) {
+			gameStart = !gameStart;
+			for (int i = 0; i < SpawnerArray.Length; i++) {
+				SpawnerArray[i].GetComponent<SpawnScript>().StartStop();
+			}
+			slider.value = 0;
+			button.enabled = !button.enabled;
+			button.image.enabled= !button.image.enabled;
+			slider.enabled = !slider.enabled;
+			slider.GetComponent<Image> ().enabled = !slider.GetComponent<Image> ().enabled;
+			fill.GetComponent<Image> ().enabled = !fill.GetComponent<Image> ().enabled;
+			button.GetComponentInChildren<Text> ().enabled = !button.GetComponentInChildren<Text> ().enabled;
+		}
 				}
-		slider.value = 0;
-		button.enabled = !button.enabled;
-		button.image.enabled= !button.image.enabled;
-		slider.enabled = !slider.enabled;
-		slider.GetComponent<Image> ().enabled = !slider.GetComponent<Image> ().enabled;
-		fill.GetComponent<Image> ().enabled = !fill.GetComponent<Image> ().enabled;
-		button.GetComponentInChildren<Text> ().enabled = !button.GetComponentInChildren<Text> ().enabled;
-	}
+
 }
