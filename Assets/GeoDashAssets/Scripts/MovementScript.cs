@@ -87,9 +87,20 @@ public class MovementScript : MonoBehaviour {
 		}
 
 		//Rotates player while game is running
-		if (manager.gameRunning && !manager.gameOver)
+		if (manager.gameRunning && !manager.gameOver && !manager.gameWon)
 		{
 			transform.Rotate (Vector3.back * Time.deltaTime * 500);
+		}
+	}
+
+	void OnCollisionEnter(Collision collision)
+	{
+		Debug.Log ("Player collided...");
+		if (collision.collider.tag == "Spike")
+		{
+			Debug.Log ("...with a spike! :D");
+			manager.gameOver = true;
+			manager.gameRunning = false;
 		}
 	}
 

@@ -23,6 +23,7 @@ public class ExitLevelCollider : MonoBehaviour {
 		if (other.tag == "Player")
 		{
 			manager.gameWon = true;
+			manager.gameRunning = false;
 			Debug.Log ("You won the game!");
 		}
 	}

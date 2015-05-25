@@ -20,6 +20,7 @@ namespace Vuforia
  
         private TrackableBehaviour mTrackableBehaviour;
 		DashManager manager;
+		AudioSource soundSource;
     
         #endregion // PRIVATE_MEMBER_VARIABLES
 
@@ -35,6 +36,8 @@ namespace Vuforia
 			{
 				Debug.Log ("Manager found!");
 			}
+
+			soundSource = GameObject.FindWithTag ("SoundSource").GetComponent<AudioSource>();
 
             mTrackableBehaviour = GetComponent<TrackableBehaviour>();
             if (mTrackableBehaviour)
@@ -79,6 +82,7 @@ namespace Vuforia
 
         private void OnTrackingFound()
         {
+			soundSource.Play ();
 			manager.ShowButton ();
             Renderer[] rendererComponents = GetComponentsInChildren<Renderer>(true);
             Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
@@ -101,8 +105,8 @@ namespace Vuforia
 
         private void OnTrackingLost()
         {
+			soundSource.Stop ();
 			manager.HideButton ();
-			//manager.gameRunning = false;
             Renderer[] rendererComponents = GetComponentsInChildren<Renderer>(true);
             //Collider[] colliderComponents = GetComponentsInChildren<Collider>(true);
 

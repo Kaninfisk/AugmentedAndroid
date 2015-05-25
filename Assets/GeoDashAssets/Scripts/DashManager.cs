@@ -10,6 +10,7 @@ public class DashManager : MonoBehaviour {
 	public GameObject level;
 	public Button button;
 	public Text loseText;
+	public Text winText;
 	GameObject runningLevel;
 	GameObject player;
 
@@ -23,6 +24,7 @@ public class DashManager : MonoBehaviour {
 		//Finding the image target and player for the reset method
 		target = GameObject.FindWithTag ("ImageTarget");
 		player = GameObject.FindWithTag ("Player");
+		winText.gameObject.SetActive (false);
 		//button = GameObject.FindWithTag ("Button").GetComponent<Button>();
 		//loseText = GameObject.FindWithTag ("LoseText").GetComponent<Text> ();
 	}
@@ -30,16 +32,28 @@ public class DashManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update ()
 	{
+		//shows loseText + restart button and disables moevement when player dies
 		if (gameOver)
 		{
+			winText.gameObject.SetActive(false);
 			loseText.gameObject.SetActive(true);
 			ShowButton();
 			player.GetComponent<MovementScript>().enabled = false;
 		}
+		else if (gameWon)
+		{
+			winText.gameObject.SetActive(true);
+			loseText.gameObject.SetActive(false);
+			HideButton ();
+			player.GetComponent<MovementScript>().enabled = false;
+		}
 		else
 		{
+			winText.gameObject.SetActive(false);
 			loseText.gameObject.SetActive(false);
 		}
+
+
 	}
 
 	public void ResetLevel()
