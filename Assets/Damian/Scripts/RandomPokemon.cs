@@ -12,7 +12,7 @@ public class RandomPokemon : MonoBehaviour
     private int[] chosenPkmn = new int[4];
     private string theCorrectPokemon;
     private int tmp;
-    public GameObject btn1, btn2, btn3, btn4, startBtn;
+    public GameObject btn1, btn2, btn3, btn4, startBtn, endBtn;
     private bool shown, done;
 
     public AudioClip wrong, correct, who;
@@ -20,14 +20,15 @@ public class RandomPokemon : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        //Sets the start button to false to begin with
         startBtn.SetActive(false);
 
+        //Gives the Random at seed from the time, to make it more random
         Random.seed = (int)System.DateTime.Now.Ticks;
         tmp = 0;
         //Fills the list with pokemon
         foreach (Transform child in transform)
         {
-
             pokemon.Add(child.gameObject);
             tmp++;
         }
@@ -45,155 +46,83 @@ public class RandomPokemon : MonoBehaviour
     {
 
         if (btn1.GetComponentInChildren<Text>().text == theCorrectPokemon)
-        {
-
-            foreach (Transform child in transform)
-            {
-                if (child.name == theCorrectPokemon)
-                {
-                    if (shown)
-                    {
-                        GetComponentInChildren<ChangeFromBlack>().guess = true;
-                        GetComponentInChildren<ChangeFromBlack>().notSwitched = true;
-                        child.gameObject.SetActive(false);
-                        getPkmn = true;
-
-                    }
-
-                    if (!shown)
-                    {
-                        GetComponentInChildren<ChangeFromBlack>().guess = true;
-                        GetComponentInChildren<ChangeFromBlack>().notSwitched = true;
-
-                        audio.PlayOneShot(correct);
-                        
-                        shown = true;
-                    }
-                }
-
-            }
-            GetComponent<Timer>().RunStop();
-
-        }
+            CorrectPokemon();
         else
-        {
-            audio.PlayOneShot(wrong);
-            Handheld.Vibrate();
-        }
+            IncorrectPokemon();
     }
     public void button2()
     {
         if (btn2.GetComponentInChildren<Text>().text == theCorrectPokemon)
-        {
-
-            foreach (Transform child in transform)
-            {
-                if (child.name == theCorrectPokemon)
-                {
-                    if (shown)
-                    {
-                        GetComponentInChildren<ChangeFromBlack>().guess = true;
-                        GetComponentInChildren<ChangeFromBlack>().notSwitched = true;
-                        child.gameObject.SetActive(false);
-                        getPkmn = true;
-                    }
-
-                    if (!shown)
-                    {
-                        GetComponentInChildren<ChangeFromBlack>().guess = true;
-                        GetComponentInChildren<ChangeFromBlack>().notSwitched = true;
-
-                        audio.PlayOneShot(correct);
-                        
-                        shown = true;
-                    }
-                }
-            }
-            GetComponent<Timer>().RunStop();
-        }
+            CorrectPokemon();
         else
-        {
-            audio.PlayOneShot(wrong);
-            Handheld.Vibrate();
-        }
+            IncorrectPokemon();
     }
     public void button3()
     {
         if (btn3.GetComponentInChildren<Text>().text == theCorrectPokemon)
-        {
-
-            foreach (Transform child in transform)
-            {
-                if (child.name == theCorrectPokemon)
-                {
-                    if (shown)
-                    {
-                        GetComponentInChildren<ChangeFromBlack>().guess = true;
-                        GetComponentInChildren<ChangeFromBlack>().notSwitched = true;
-
-                        child.gameObject.SetActive(false);
-                        getPkmn = true;
-
-                    }
-
-                    if (!shown)
-                    {
-                        GetComponentInChildren<ChangeFromBlack>().guess = true;
-                        GetComponentInChildren<ChangeFromBlack>().notSwitched = true;
-
-                        audio.PlayOneShot(correct);
-                        
-                        shown = true;
-                    }
-                }
-
-
-
-            }
-            GetComponent<Timer>().RunStop();
-
-        }
+            CorrectPokemon();
         else
-        {
-            audio.PlayOneShot(wrong);
-            Handheld.Vibrate();
-        }
+            IncorrectPokemon();
     }
     public void button4()
     {
         if (btn4.GetComponentInChildren<Text>().text == theCorrectPokemon)
+            CorrectPokemon();
+        else
+            IncorrectPokemon();
+    }
+
+    public void CorrectPokemon()
+    {
+
+        // TRÆK 5 SEKUNDER FRA GLOBAL HER
+
+        foreach (Transform child in transform)
         {
-
-            foreach (Transform child in transform)
+            if (child.name == theCorrectPokemon)
             {
-                if (child.name == theCorrectPokemon)
+                if (shown)
                 {
-                    if (shown)
-                    {
-                        GetComponentInChildren<ChangeFromBlack>().guess = true;
-                        GetComponentInChildren<ChangeFromBlack>().notSwitched = true;
-                        child.gameObject.SetActive(false);
-                        getPkmn = true;
-                    }
+                    GetComponentInChildren<ChangeFromBlack>().guess = true;
+                    GetComponentInChildren<ChangeFromBlack>().notSwitched = true;
+                    child.gameObject.SetActive(false);
 
-                    if (!shown)
+                    if (GetComponent<Timer>().elapsedSeconds >= 20)
                     {
-                        GetComponentInChildren<ChangeFromBlack>().guess = true;
-                        GetComponentInChildren<ChangeFromBlack>().notSwitched = true;
-
-                        audio.PlayOneShot(correct);
+                        //GameObject obj = GameObject.Find("EndButtonTag");
                         
-                        shown = true;
+                        //obj.gameObject.SetActive(true);
+
+                        endBtn.SetActive(true);
                     }
+                    else
+                        getPkmn = true;
+                }
+
+                if (!shown)
+                {
+                    GetComponentInChildren<ChangeFromBlack>().guess = true;
+                    GetComponentInChildren<ChangeFromBlack>().notSwitched = true;
+
+                    audio.PlayOneShot(correct);
+
+                    shown = true;
                 }
             }
-            GetComponent<Timer>().RunStop();
         }
-        else
-        {
-            audio.PlayOneShot(wrong);
-            Handheld.Vibrate();
-        }
+        GetComponent<Timer>().RunStop();
+    }
+    public void IncorrectPokemon()
+    {
+        // LIG 5 SEKUNDER TIL GLOBAL HER
+
+        audio.PlayOneShot(wrong);
+        Handheld.Vibrate();
+    }
+
+    public void GoToMenu()
+    {
+        //Go to menu
     }
 
     void Update()
