@@ -8,6 +8,10 @@ public class Meteor : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		GameInfo = GameObject.Find ("GameInfo");
+        if (MovementSpeed == 0)
+        {
+            MovementSpeed = 10;
+        }
 	}
 	
 	// Update is called once per frame
