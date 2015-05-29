@@ -11,6 +11,7 @@ public class CamCollison : MonoBehaviour {
 		{
 			target.SendMessage("StopGame", true);
 		}
+		Debug.Log (collision.name);
 	}
 	
 	void OnTriggerExit(Collider collision) 

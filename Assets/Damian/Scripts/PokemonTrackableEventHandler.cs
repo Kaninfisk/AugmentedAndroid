@@ -54,6 +54,8 @@ namespace Vuforia
                 newStatus == TrackableBehaviour.Status.TRACKED ||
                 newStatus == TrackableBehaviour.Status.EXTENDED_TRACKED)
             {
+				GameObject.FindWithTag("PokemonCanvasTag").GetComponent<Canvas>().enabled = true;
+
                 arImageFound = true;
                 OnTrackingFound();
 

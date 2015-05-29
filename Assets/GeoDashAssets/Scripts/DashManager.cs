@@ -82,5 +82,7 @@ public class DashManager : MonoBehaviour {
 	public void HideButton()
 	{
 		button.gameObject.SetActive (false);
+		loseText.gameObject.SetActive (false);
+		winText.gameObject.SetActive (false);
 	}
 }

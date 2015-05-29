@@ -6,6 +6,7 @@ public class Game : MonoBehaviour {
 	public Button button;
 	public GameObject fill;
 	public GameObject[] SpawnerArray;
+	public Image image;
 	// Use this for initialization
 	public float GameTime = 10;
 	private bool gameStart = false;
@@ -15,7 +16,7 @@ public class Game : MonoBehaviour {
 		slider.enabled = false;
 		slider.GetComponent<Image> ().enabled = false;
 		slider.maxValue = GameTime;
-		trackable = false;
+		hidestuff ();
 
 		fill.GetComponent<Image> ().enabled = false;
 	}
@@ -28,9 +29,10 @@ public class Game : MonoBehaviour {
 		}
 	// Update is called once per frame
 	void Update () {
+		Debug.Log (trackable);
 	if (gameStart) {
 
-			if (trackable) {
+			if (true) {
 				if (slider.value + Time.deltaTime > slider.maxValue) {
 					StartStop();	
 				}
@@ -41,10 +43,22 @@ public class Game : MonoBehaviour {
 			//Debug.Log("Deltatime = " + Time.deltaTime + "totaltime in Milliseconds = " + tottime);
 				}
 	}
+	public void hidestuff(){
+		button.enabled = false;
+		button.image.enabled = false;
+		image.enabled = false;
+		}
 
+	public void showstuff(){
+		button.enabled = true;
+		button.image.enabled = true;
+		image.enabled = true;
+	}
 	public void StartStop(){
 		Debug.Log ("StartStop");
-		if (trackable) {
+		Debug.Log (trackable);
+		//if (trackable) {
+
 			gameStart = !gameStart;
 			for (int i = 0; i < SpawnerArray.Length; i++) {
 				SpawnerArray[i].GetComponent<SpawnScript>().StartStop();
@@ -56,7 +70,8 @@ public class Game : MonoBehaviour {
 			slider.GetComponent<Image> ().enabled = !slider.GetComponent<Image> ().enabled;
 			fill.GetComponent<Image> ().enabled = !fill.GetComponent<Image> ().enabled;
 			button.GetComponentInChildren<Text> ().enabled = !button.GetComponentInChildren<Text> ().enabled;
-		}
+		image.enabled = !image.enabled;
+		//}
 				}
 
 }

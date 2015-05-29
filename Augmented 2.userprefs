@@ -1,0 +1,26 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.Default" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Runner\CamCollison.cs">
+    <Files>
+      <File FileName="Assets\Runner\Movement.cs" Line="47" Column="25" />
+      <File FileName="Assets\Runner\Movement.cs" Line="1" Column="1" />
+      <File FileName="Assets\Damian\Scripts\RandomPokemon.cs" Line="1" Column="1" />
+      <File FileName="Assets\GeoDashAssets\Scripts\GeoDashTrackableEventHandler.cs" Line="1" Column="1" />
+      <File FileName="Assets\MeteorStorm Assets\Scripts\Meteor.cs" Line="1" Column="1" />
+      <File FileName="Assets\GeoDashAssets\Scripts\DashManager.cs" Line="1" Column="1" />
+      <File FileName="Assets\Editor\QCAR\Scripts\ExtensionImport.cs" Line="1" Column="1" />
+      <File FileName="Assets\Qualcomm Augmented Reality\Scripts\DefaultInitializationErrorHandler.cs" Line="1" Column="1" />
+      <File FileName="Assets\MeteorStorm Assets\Scripts\SpawnScript.cs" Line="1" Column="1" />
+      <File FileName="Assets\Damian\Scripts\ChangeFromBlack.cs" Line="1" Column="1" />
+      <File FileName="Assets\Damian\Scripts\getTxt.cs" Line="1" Column="1" />
+      <File FileName="Assets\Timer.cs" Line="1" Column="1" />
+      <File FileName="Assets\Damian\Scripts\PokemonTrackableEventHandler.cs" Line="1" Column="1" />
+      <File FileName="Assets\Runner\CamCollison.cs" Line="14" Column="30" />
+      <File FileName="Assets\MeteorStorm Assets\Scripts\Game.cs" Line="32" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

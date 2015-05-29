@@ -19,11 +19,7 @@ public class SpawnScript : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		//Debug.Log ("In Update");
-			if (Input.GetKeyDown(KeyCode.Space)) {
-			Debug.Log("Space Pressed");
-			GameRunning = !GameRunning;
-			SpawnInit = true;
-			}
+			
 		if (GameRunning && SpawnInit) {
 			Spawn ();	
 				}
@@ -31,11 +27,12 @@ public class SpawnScript : MonoBehaviour {
 		}
 
 	public void StartStop(){
+		Debug.Log ("Start spawner");
 		GameRunning = !GameRunning;
 		SpawnInit = true;
 	}
 	void Spawn(){
-			if (GameRunning && GameInfo.GetComponent<Game>().GetTarackable()) {
+			if (GameRunning) {
 			Instantiate(obj[Random.Range(0,obj.Length)], transform.position, Quaternion.identity);
 			Invoke ("Spawn", Random.Range (spawnMin, spawnMax));
 			SpawnInit = false;

@@ -9,7 +9,7 @@ public class Timer : MonoBehaviour
     public GameObject slider;
     public Stopwatch localStopwatch;
     public float elapsedSeconds;
-    private bool started;
+    public bool started;
     // Use this for initialization
     void Start()
     {

@@ -18,6 +18,7 @@ namespace Vuforia
  
         private TrackableBehaviour mTrackableBehaviour;
     	public GameObject FindInfo;
+		public GameObject GameInfo;
         #endregion // PRIVATE_MEMBER_VARIABLES
 
 
@@ -52,11 +53,15 @@ namespace Vuforia
                 newStatus == TrackableBehaviour.Status.EXTENDED_TRACKED)
             {
 				FindInfo.GetComponent<Game>().Istrackable(true);
+				Debug.Log(FindInfo.GetComponent<Game>().GetTarackable());
+				GameInfo.GetComponent<Game>().showstuff();
                 OnTrackingFound();
             }
             else
             {
-				FindInfo.GetComponent<Game>().Istrackable(false);
+				Debug.Log ("TrackingLost msg");
+				//FindInfo.GetComponent<Game>().Istrackable(false);
+				GameInfo.GetComponent<Game>().hidestuff();
                 OnTrackingLost();
             }
         }
