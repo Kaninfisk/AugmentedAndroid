@@ -1,6 +1,8 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
+Project("{CFE95A93-BA8C-C29F-D2BE-DC5BBC8B78C4}") = "AugmentedAndroid", "Assembly-CSharp-firstpass-vs.csproj", "{D31C0AF8-2F46-48E0-EFB4-A64E9573A5BD}"
+EndProject
 Project("{CFE95A93-BA8C-C29F-D2BE-DC5BBC8B78C4}") = "AugmentedAndroid", "Assembly-CSharp-vs.csproj", "{EC3E9760-8FD8-3BA2-3FBD-30F3849048CC}"
 EndProject
 Project("{CFE95A93-BA8C-C29F-D2BE-DC5BBC8B78C4}") = "AugmentedAndroid", "Assembly-CSharp-Editor-vs.csproj", "{FA120F20-6D9E-97F8-324E-D0909C1F9946}"
@@ -11,6 +13,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D31C0AF8-2F46-48E0-EFB4-A64E9573A5BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D31C0AF8-2F46-48E0-EFB4-A64E9573A5BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D31C0AF8-2F46-48E0-EFB4-A64E9573A5BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D31C0AF8-2F46-48E0-EFB4-A64E9573A5BD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EC3E9760-8FD8-3BA2-3FBD-30F3849048CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EC3E9760-8FD8-3BA2-3FBD-30F3849048CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC3E9760-8FD8-3BA2-3FBD-30F3849048CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -23,7 +29,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																																											GlobalSection(MonoDevelopProperties) = preSolution
+																																																																																							GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1

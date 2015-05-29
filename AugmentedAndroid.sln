@@ -1,11 +1,15 @@
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2008
 
+Project("{CFE95A93-BA8C-C29F-D2BE-DC5BBC8B78C4}") = "AugmentedAndroid", "Assembly-CSharp-firstpass.csproj", "{D31C0AF8-2F46-48E0-EFB4-A64E9573A5BD}"
+EndProject
 Project("{CFE95A93-BA8C-C29F-D2BE-DC5BBC8B78C4}") = "AugmentedAndroid", "Assembly-CSharp.csproj", "{EC3E9760-8FD8-3BA2-3FBD-30F3849048CC}"
 EndProject
 Project("{CFE95A93-BA8C-C29F-D2BE-DC5BBC8B78C4}") = "AugmentedAndroid", "Assembly-CSharp-Editor.csproj", "{FA120F20-6D9E-97F8-324E-D0909C1F9946}"
 EndProject
 Project("{CFE95A93-BA8C-C29F-D2BE-DC5BBC8B78C4}") = "AugmentedAndroid", "Assembly-UnityScript-firstpass.unityproj", "{75F9455C-601E-9EF0-4CBF-C778F0B65901}"
+EndProject
+Project("{CFE95A93-BA8C-C29F-D2BE-DC5BBC8B78C4}") = "AugmentedAndroid", "Assembly-UnityScript.unityproj", "{F0D32ED8-3923-AAD9-D6C5-C10E695EC8B2}"
 EndProject
 Project("{CFE95A93-BA8C-C29F-D2BE-DC5BBC8B78C4}") = "AugmentedAndroid", "Assembly-UnityScript-Editor-firstpass.unityproj", "{7BD0F14C-F145-0E2A-D0D9-5B8518F9B012}"
 EndProject
@@ -15,6 +19,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D31C0AF8-2F46-48E0-EFB4-A64E9573A5BD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D31C0AF8-2F46-48E0-EFB4-A64E9573A5BD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D31C0AF8-2F46-48E0-EFB4-A64E9573A5BD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D31C0AF8-2F46-48E0-EFB4-A64E9573A5BD}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EC3E9760-8FD8-3BA2-3FBD-30F3849048CC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EC3E9760-8FD8-3BA2-3FBD-30F3849048CC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EC3E9760-8FD8-3BA2-3FBD-30F3849048CC}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -27,6 +35,10 @@ Global
 		{75F9455C-601E-9EF0-4CBF-C778F0B65901}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{75F9455C-601E-9EF0-4CBF-C778F0B65901}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{75F9455C-601E-9EF0-4CBF-C778F0B65901}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F0D32ED8-3923-AAD9-D6C5-C10E695EC8B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F0D32ED8-3923-AAD9-D6C5-C10E695EC8B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F0D32ED8-3923-AAD9-D6C5-C10E695EC8B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F0D32ED8-3923-AAD9-D6C5-C10E695EC8B2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{7BD0F14C-F145-0E2A-D0D9-5B8518F9B012}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{7BD0F14C-F145-0E2A-D0D9-5B8518F9B012}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7BD0F14C-F145-0E2A-D0D9-5B8518F9B012}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -35,7 +47,7 @@ Global
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
-																																																																										GlobalSection(MonoDevelopProperties) = preSolution
+																																																																																						GlobalSection(MonoDevelopProperties) = preSolution
 		StartupItem = Assembly-CSharp.csproj
 		Policies = $0
 		$0.TextStylePolicy = $1
