@@ -1,0 +1,15 @@
+C:\Users\DaoDib\Documents\AugmentedAndroid\Temp\bin\Debug\Assembly-CSharp.dll
+C:\Users\DaoDib\Documents\AugmentedAndroid\Temp\bin\Debug\Assembly-CSharp.pdb
+C:\Users\DaoDib\Documents\AugmentedAndroid\Temp\bin\Debug\Assembly-UnityScript-firstpass.dll
+C:\Users\DaoDib\Documents\AugmentedAndroid\Temp\bin\Debug\Qualcomm.Vuforia.UnityExtensions.dll
+C:\Users\DaoDib\Documents\AugmentedAndroid\Temp\bin\Debug\UnityEditor.dll
+C:\Users\DaoDib\Documents\AugmentedAndroid\Temp\bin\Debug\UnityEngine.dll
+C:\Users\DaoDib\Documents\AugmentedAndroid\Temp\bin\Debug\UnityEngine.UI.dll
+C:\Users\DaoDib\Documents\AugmentedAndroid\Temp\bin\Debug\Mono.Cecil.dll
+C:\Users\DaoDib\Documents\AugmentedAndroid\Temp\bin\Debug\nunit.framework.dll
+C:\Users\DaoDib\Documents\AugmentedAndroid\Temp\bin\Debug\Unity.DataContract.dll
+C:\Users\DaoDib\Documents\AugmentedAndroid\Temp\bin\Debug\ICSharpCode.NRefactory.dll
+C:\Users\DaoDib\Documents\AugmentedAndroid\Temp\bin\Debug\Qualcomm.Vuforia.UnityExtensions.xml
+C:\Users\DaoDib\Documents\AugmentedAndroid\obj\Debug\Assembly-CSharp-vs.csprojResolveAssemblyReference.cache
+C:\Users\DaoDib\Documents\AugmentedAndroid\obj\Debug\Assembly-CSharp.dll
+C:\Users\DaoDib\Documents\AugmentedAndroid\obj\Debug\Assembly-CSharp.pdb
