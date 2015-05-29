@@ -94,7 +94,8 @@ namespace Vuforia.EditorClasses
 #endif
                 // Here we set the scripting define symbols for IOS
                 // so we can remember that the settings were set once.
-                //PlayerSettings.SetScriptingDefineSymbolsForGroup(iOSBuildTarget, iOSSymbols + ";" + VUFORIA_IOS_SETTINGS);
+//                PlayerSettings.SetScriptingDefineSymbolsForGroup(iOSBuildTarget, 
+//                                                                 iOSSymbols + ";" + VUFORIA_IOS_SETTINGS);
             }
         }
     }
